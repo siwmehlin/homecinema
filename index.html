@@ -9,17 +9,30 @@
 </head>
 
 <body>
-
     <!-- dette ses kun på siden vha java -->
+    <template>
 
+        <article id="film_boks">
+
+            <img src="" alt="">
+        </article>
+
+    </template>
+
+    <!-- dette ses hele tiden -->
 
     <section id="popop">
         <article>
             <button id="luk">luk</button>
             <div class="container">
-                <img src="" alt="">
 
-                <div class="column">
+                <div class="box1">
+                    <img src="" alt="">
+                    <button class="play">Play</button>
+                    <button class="trailer">Trailer</button>
+                </div>
+
+                <div class="box2">
                     <h1 class="navn" id="navn"></h1>
                     <p>genre: <span class="genre"></span> </p>
                     <p>Beskrivelse: <span class="beskrivelse"></span></p>
@@ -28,39 +41,54 @@
                     <p>alder: <span class="alder"></span></p>
                     <p>imdb: <span class="imdb"></span></p>
                     <p>skuespillere: <span class="skuespillere"></span></p>
-                    <img src="" alt="">
+                </div>
+
+                <div class="box3">
 
                 </div>
+
+
+
+
             </div>
         </article>
     </section>
 
 
     <section id="forside">
-        <template>
 
-            <article id="film_boks">
-                <img src="" alt="">
-            </article>
-
-        </template>
     </section>
 
-    <!-- dette ses hele tiden -->
+
 
     <header>
+
+        <nav>
+            <div id="menuknap">☰</div>
+
+            <ul id="menu" class="hidden">
+
+
+                <li> <a>PREMIERE</a></li>
+                <li> <a>ROMANTIC</a></li>
+                <li> <a>COMEDY</a></li>
+                <li> <a>ANIMATION</a></li>
+                <li> <a>HORROR</a></li>
+                <li> <a>DOCUMENTARY</a></li>
+            </ul>
+        </nav>
 
     </header>
 
     <main>
-        <section>
-            <div id="splash"></div>
+        <section class="splash">
+            <img src="denise-jans-OaVJQZ-nFD0-unsplash.jpg" alt="bio">
         </section>
 
 
         <div class="content">
             <section id="filtermenu">
-                <h1 id="emne">Alle</h1>
+
                 <button class="filter valgt" data-genre="alle">Alle Genre</button>
                 <button class="filter" data-genre="Premiere">Premiere</button>
                 <button class="filter" data-genre="Horror">Horror</button>
@@ -68,10 +96,36 @@
                 <button class="filter" data-genre="Animation">Animation</button>
                 <button class="filter" data-genre="Documentary">Documentary</button>
                 <button class="filter" data-genre="Comedy">Comedy</button>
+                <h1 id="emne">Alle</h1>
             </section>
 
+            <section class="kategori">
 
-            <section id="list">
+                <h1>All Movies</h1>
+                <section id="all_movies"></section>
+
+
+                <button class="genretxt1 genrebut">Premiere Movies</button>
+                <section class="scroll" id="premiere"></section>
+
+                <button class="genretxt2 genrebut">Romantic Movies</button>
+                <section class="scroll" id="romantic"></section>
+
+
+                <button class="genretxt3 genrebut">Animation Movies</button>
+                <section class="scroll" id="animation"></section>
+
+
+                <button class="genretxt4 genrebut">Comedy Movied</button>
+                <section class="scroll" id="comedy"></section>
+
+
+                <button class="genretxt5 genrebut">Horror Movies</button>
+                <section class="scroll" id="horror"></section>
+
+
+                <button class="genretxt6 genrebut">Documentary</button>
+                <section class="scroll" id="documentary"></section>
 
 
             </section>
