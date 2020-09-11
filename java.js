@@ -5,40 +5,153 @@
         // 2PACX-1vSGuox_61lOs9uKSEo1WLMP2fxjH6Q_4CLdmDUH-Rb-TOjT2jbw49cfom7HFRI8KmV5lXWKU79Me2TN
 
         async function hentdata() {
-            const JASONData = await fetch("https://spreadsheets.google.com/feeds/list/1x0pdtxNhVAvS_mK4VcyHojs1tc7UIEzpadqQLCLP6Wg/od6/public/values?alt=json");
+            const JASONData = await fetch("https://spreadsheets.google.com/feeds/list/1Z9EjUVYxqOJ6Ic7Ibk4ox5qTcQjp845ygT3AaYKT_8c/od6/public/values?alt=json");
             movies = await JASONData.json();
             addEventListenersToButtons();
             visMenu();
         }
 
+        function toggleMenu() {
+            console.log("toggleMenu");
+
+            document.querySelector("#menu").classList.toggle("hidden");
+
+            let erSkjult = document.querySelector("#menu").classList.contains("hidden")
+
+            if (erSkjult == true) {
+                document.querySelector("#menuknap").textContent = "☰";
+
+            } else {
+                document.querySelector("#menuknap").textContent = "X";
+            }
+        }
+
+
         function visMenu() {
             console.log(movies);
 
             const templatePointer = document.querySelector("template");
-            const listPointer = document.querySelector("#list");
+            const listPointer = document.querySelector("#all_movies");
+            const premierePointer = document.querySelector("#premiere");
+            const horrorPointer = document.querySelector("#horror");
+            const romanticPointer = document.querySelector("#romantic");
+            const animationPointer = document.querySelector("#animation");
+            const documentaryPointer = document.querySelector("#documentary");
+            const comedyPointer = document.querySelector("#comedy");
             const popop = document.querySelector("#popop");
 
             listPointer.innerHTML = "";
+            premierePointer.innerHTML = "";
+            horrorPointer.innerHTML = "";
+            romanticPointer.innerHTML = "";
+            animationPointer.innerHTML = "";
+            documentaryPointer.innerHTML = "";
+            comedyPointer.innerHTML = "";
+
+
 
             movies.feed.entry.forEach(movie => {
                 if (filter == "alle" || filter == movie.gsx$genre.$t) {
                     console.log(movie);
 
-                    const klon = templatePointer.cloneNode(true).content;
-                    //klon.querySelector(".navn").textContent = navn.gsx$år.$t;
 
-                    //                    klon.querySelector(".køn").textContent = "Kategori: " + navn.gsx$kategori.$t;
-                    //                    klon.querySelector(".pris").textContent = "Pris: " + navn.gsx$pris.$t + " kr";
-                    //                    klon.querySelector(".beskrivelse").textContent = "Beskrivelse: " + navn.gsx$kort.$t;
-                    klon.querySelector("img").src = movie.gsx$billede.$t;
 
-                    klon.querySelector("article").addEventListener("click", () => visDetaljer(movie))
-                    listPointer.appendChild(klon);
+                    if (movie.gsx$genre.$t == "Premiere") {
+                        console.log(movie);
 
+                        const klon = templatePointer.cloneNode(true).content;
+
+                        klon.querySelector("img").src = movie.gsx$billede.$t;
+
+                        klon.querySelector("article").addEventListener("click", () => visDetaljer(movie))
+                        premierePointer.appendChild(klon);
+
+                    }
+
+
+                    if (movie.gsx$genre.$t == "Romantic") {
+                        console.log(movie);
+
+                        const klon = templatePointer.cloneNode(true).content;
+
+                        klon.querySelector("img").src = movie.gsx$billede.$t;
+
+                        klon.querySelector("article").addEventListener("click", () => visDetaljer(movie))
+                        romanticPointer.appendChild(klon);
+
+                    }
+                    if (movie.gsx$genre.$t == "Animation") {
+                        console.log(movie);
+
+                        const klon = templatePointer.cloneNode(true).content;
+
+                        klon.querySelector("img").src = movie.gsx$billede.$t;
+
+                        klon.querySelector("article").addEventListener("click", () => visDetaljer(movie))
+                        animationPointer.appendChild(klon);
+                    }
+
+
+                    if (movie.gsx$genre.$t == "Comedy") {
+                        console.log(movie);
+
+                        const klon = templatePointer.cloneNode(true).content;
+
+                        klon.querySelector("img").src = movie.gsx$billede.$t;
+
+                        klon.querySelector("article").addEventListener("click", () => visDetaljer(movie))
+                        comedyPointer.appendChild(klon);
+                    }
+
+                    if (movie.gsx$genre.$t == "Horror") {
+                        console.log(movie);
+
+                        const klon = templatePointer.cloneNode(true).content;
+
+                        klon.querySelector("img").src = movie.gsx$billede.$t;
+
+                        klon.querySelector("article").addEventListener("click", () => visDetaljer(movie))
+                        horrorPointer.appendChild(klon);
+
+                    }
+                    if (movie.gsx$genre.$t == "Documentary") {
+                        console.log(movie);
+
+                        const klon = templatePointer.cloneNode(true).content;
+
+                        klon.querySelector("img").src = movie.gsx$billede.$t;
+
+
+                        klon.querySelector("article").addEventListener("click", () => visDetaljer(movie))
+                        documentaryPointer.appendChild(klon);
+
+                    }
                 }
             })
 
         }
+
+        document.querySelector("#menuknap").addEventListener("click", toggleMenu);
+
+
+        function toggleMenu() {
+            console.log("toggleMenu");
+
+            document.querySelector("#menu").classList.toggle("hidden");
+
+            let erSkjult = document.querySelector("#menu").classList.contains("hidden")
+
+            if (erSkjult == true) {
+                document.querySelector("#menuknap").textContent = "☰";
+
+            } else {
+                document.querySelector("#menuknap").textContent = "X";
+            }
+        }
+
+
+
+
 
         document.querySelector("#luk").addEventListener("click", () => popop.style.display = "none");
 
