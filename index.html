@@ -47,9 +47,6 @@
 
                 </div>
 
-
-
-
             </div>
         </article>
     </section>
@@ -58,8 +55,6 @@
     <section id="forside">
 
     </section>
-
-
 
     <header>
 
@@ -82,54 +77,58 @@
         </section>
 
 
+        <nav>
+            <div class="content dropdown">
+                <button class="dropbtn">Filter</button>
+                <div class="dropdown_content">
+                    <a class="filter valgt" data-genre="alle">All movies</a>
+                    <a class="filter" data-genre="Premiere">Premiere</a>
+                    <a class="filter" data-genre="Romantic">Romantic</a>
+                    <a class="filter" data-genre="Animation">Animation</a>
+                    <a class="filter" data-genre="Comedy">Comedy</a>
+                    <a class="filter" data-genre="Horror">Horror</a>
+                    <a class="filter" data-genre="Documentary">Documentary</a>
 
-        <div class="content dropdown">
-            <button class="dropbtn">Filter</button>
-            <div class="dropdown_content">
-                <a class="filter valgt" data-genre="alle">All movies</a>
-                <a class="filter" data-genre="Premiere">Premiere</a>
-                <a class="filter" data-genre="Romantic">Romantic</a>
-                <a class="filter" data-genre="Animation">Animation</a>
-                <a class="filter" data-genre="Comedy">Comedy</a>
-                <a class="filter" data-genre="Horror">Horror</a>
-                <a class="filter" data-genre="Documentary">Documentary</a>
-
+                </div>
             </div>
-        </div>
-        <h1 id="emne">Alle</h1>
 
+        </nav>
+
+        <section>
+            <h1 id="emne">Alle</h1>
+        </section>
 
         <section class="kategori">
 
-            <h1>All Movies</h1>
+
             <section id="all_movies"></section>
 
-            <section id="premiere_section">
+            <section id="premiere_section" class="section_grid">
                 <button id="premierebtn" class="genretxt1 genrebut ">Premiere Movies</button>
                 <article class="scroll" id="premiere"></article>
             </section>
 
-            <section id="romantic_section">
+            <section id="romantic_section" class="section_grid">
                 <button id="romanticbtn" class="genretxt2 genrebut ">Romantic Movies</button>
                 <article class="scroll" id="romantic"></article>
             </section>
 
-            <section id="animation_section">
+            <section id="animation_section" class="section_grid">
                 <button id="animationbtn" class="genretxt3 genrebut ">Animation Movies</button>
                 <article class="scroll" id="animation"></article>
             </section>
 
-            <section id="comedy_section">
+            <section id="comedy_section" class="section_grid">
                 <button id="comedybtn" class="genretxt4 genrebut ">Comedy Movied</button>
                 <article class="scroll" id="comedy"></article>
             </section>
 
-            <section id="horror_section">
+            <section id="horror_section" class="section_grid">
                 <button id="horrorbtn" class="genretxt5 genrebut ">Horror Movies</button>
                 <article class="scroll" id="horror"></article>
             </section>
 
-            <section id="documentary_section">
+            <section id="documentary_section" class="section_grid">
                 <button id="documentarybtn" class="genretxt6 genrebut ">Documentary</button>
                 <article class="scroll" id="documentary"></article>
             </section>
@@ -143,6 +142,4 @@
 
     </footer>
     <script src="java.js"></script>
-</body>
-
-</html>
+</body></html>
