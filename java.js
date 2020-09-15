@@ -144,7 +144,7 @@
             popop.querySelector(".genre").textContent = movie.gsx$genre.$t;
             popop.querySelector(".navn").textContent = movie.gsx$navn.$t;
             popop.querySelector(".beskrivelse").textContent = movie.gsx$beskrivelse.$t;
-            popop.querySelector(".år").textContent = movie.gsx$år.$t;
+            popop.querySelector(".aar").textContent = movie.gsx$år.$t;
             popop.querySelector(".spilletid").textContent = movie.gsx$spilletid.$t;
             popop.querySelector(".alder").textContent = movie.gsx$alder.$t;
             popop.querySelector(".imdb").textContent = movie.gsx$imdb.$t;

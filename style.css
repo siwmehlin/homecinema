@@ -186,99 +186,141 @@ bestemmer størrelsen på splashbilledet
     height: 100vh;
     background-color: rgba(0, 0, 0, .8);
     display: none;
+    z-index: 10;
 }
 
 .container {
-    width: 60vw;
-    height: 90%;
-    background-color: #1a1a1a;
-    border-radius: 25px;
-    display: grid;
-    grid-gap: 20px;
-    grid-template-areas: "box1 box1 box2 box2""box3 box3 box3 box3";
-    grid-auto-rows: 2fr 1fr;
-
-}
-
-.box1 {
-    margin: 30px;
-    grid-area: box1;
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.box2 {
-    margin: 30px;
-    grid-area: box2;
-
-
-}
-
-.box3 {
-    background-color: beige;
-    grid-area: box3;
-}
-
-
 
 #popop article {
-    width: 60vw;
-    height: 70%;
-    margin: 4rem auto;
+    width: 90vw;
+    height: 90%;
+    margin: 2rem auto;
     background-color: #1a1a1a;
     border-radius: 25px;
+    overflow-y: scroll;
+}
 
+.box1 {
+    margin-left: 3rem;
+}
+
+
+#luk {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    background-color: #1a1a1a;
+    position: fixed;
+    border: 0;
+    border-bottom: 1px solid white;
+    border-radius: 25px 25px 0px 0px;
+    width: 90vw;
+    padding: 1em;
+    z-index: 15;
+
+}
+
+#popop img {
+    margin-top: 5rem;
+    margin-bottom: 1rem;
+    width: 80%;
+    height: 19rem;
+    object-fit: cover;
+    border-radius: 25px;
 }
 
 .play {
     background-color: #9b0000;
     border: 0;
-    padding: 15px 40px;
+    padding: 10px;
     border-radius: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     text-decoration: none;
     color: white;
     margin-right: 20px;
-    width: 15rem
+    width: 80%;
+    font-size: 20px;
 }
 
 .trailer {
     background-color: #707070;
     border: 0;
-    padding: 15px 40px;
+    padding: 10px;
     border-radius: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     text-decoration: none;
     color: white;
     margin-right: 20px;
-    width: 15rem;
+    width: 80%;
+    font-size: 20px;
 }
 
-#popop img {
-    width: 15rem;
-    height: 20rem;
-    border-radius: 25px;
+.box2 {
+    color: white;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
-
-#luk {
-    position: fixed;
-    margin-left: 57rem;
-    background-color: white;
-    color: black;
-    border-radius: 5px;
-    border: 3px solid grey;
-    width: 50px;
-    padding: 1em;
-    z-index: 10;
-
+.box2 .navn {
+    font-size: 35px;
+    margin-top: 1.7rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid white;
 }
 
 
+/*sætter grid på så de små informationer ligger vandret*/
+/*mangler at blive cebtreret*/
+.box2 .film_lilleinfo {
+    margin-top: 0.5rem;
+    display: grid;
+    grid-gap: 1.6rem;
+    grid-template-areas: "imdb aar spilletid alder";
+}
+
+.imdb {
+    grid-area: imdb;
+}
+
+.aar {
+    grid-area: aar
+}
+
+.spilletid {
+    grid-area: spilletid;
+}
+
+.alder {
+    grid-area: alder;
+}
+
+.film_storinfo h2 {
+    font-size: 25px;
+    margin-top: 3rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid white;
+}
+
+.film_storinfo p {
+    font-size: 18px;
+    padding-top: 0.5rem;
+}
+
+
+
+/*siw du er kommet her til*/
+
+/*kode til java*/
 .hide {
     display: none;
 }
 
+/*prøvekode til java (kan slettes)*/
 .active {
     background-color: aqua;
 }
