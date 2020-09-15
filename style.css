@@ -290,6 +290,10 @@ button {
     display: none;
 }
 
+.active {
+    background-color: aqua;
+}
+
 /*
 .content {
     margin-left: 10vw;
