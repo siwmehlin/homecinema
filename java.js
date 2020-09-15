@@ -55,7 +55,6 @@
                     console.log(movie);
 
 
-
                     if (movie.gsx$genre.$t == "Premiere") {
                         console.log(movie);
 
@@ -71,6 +70,8 @@
 
                     if (movie.gsx$genre.$t == "Romantic") {
                         console.log(movie);
+
+
 
                         const klon = templatePointer.cloneNode(true).content;
 
@@ -127,6 +128,8 @@
 
                     }
                 }
+
+
             })
 
         }
@@ -161,74 +164,61 @@
             filter = this.dataset.genre;
             document.querySelector("#emne").textContent = this.textContent;
 
-            visMenu();
-        }
 
-        function filterGenreBTNs() {
-
-        }
-        //
-        //        function clickGenreBTN() {
-        //            console.log(displayGenreBTN);
-        //
-        //            if (movie.gsx$genre.$t == "Premiere") {
-        //                document.querySelector(".genretxt1").addEventListener("click", displayGenreBTN);
-        //
-        //            }
-        //
-        //            if (movie.gsx$genre.$t == "Romantic") {
-        //                document.querySelector(".genretxt2").addEventListener("click", displayGenreBTN);
-        //
-        //            }
-        //
-        //            if (movie.gsx$genre.$t == "Animation") {
-        //                document.querySelector(".genretxt3").addEventListener("click", displayGenreBTN);
-        //
-        //            }
-        //
-        //            if (movie.gsx$genre.$t == "Comedy") {
-        //                document.querySelector(".genretxt4").addEventListener("click", displayGenreBTN);
-        //
-        //            }
-        //
-        //            if (movie.gsx$genre.$t == "Horror") {
-        //                document.querySelector(".genretxt5").addEventListener("click", displayGenreBTN);
-        //
-        //            }
-        //
-        //            if (movie.gsx$genre.$t == "Documentary") {
-        //                document.querySelector(".genretxt6").addEventListener("click", displayGenreBTN);
-        //            }
-        //        }
-        //
-        //
-        //        function displayGenreBTN() {
-        //            console.log(displayGenreBTN);
-        //            document.querySelector(".genretxt6").classList.add("hide");
-        //            document.querySelector(".genretxt5").classList.add("hide");
-        //            document.querySelector(".genretxt4").classList.add("hide");
-        //            document.querySelector(".genretxt3").classList.add("hide");
-        //            document.querySelector(".genretxt2").classList.add("hide");
-        //            document.querySelector(".genretxt1").classList.add("hide");
-        //        }
-
-
-
-
-        document.querySelector("#menuknap").addEventListener("click", toggleMenu);
-
-
-        function toggleMenu() {
-            console.log("toggleMenu");
-
-            document.querySelector("#menu").classList.toggle("hidden");
-
-            let erSkjult = document.querySelector("#menu").classList.contains("hidden")
-
-            if (erSkjult == true) {
-                document.querySelector("#menuknap").textContent = "☰";
-
-            } else {
-                document.querySelector("#menuknap").textContent = "X";
+            if (filter == "alle") {
+                document.querySelector("#premiere_section").classList.remove("hide");
+                document.querySelector("#romantic_section").classList.remove("hide");
+                document.querySelector("#animation_section").classList.remove("hide");
+                document.querySelector("#comedy_section").classList.remove("hide");
+                document.querySelector("#horror_section").classList.remove("hide");
+                document.querySelector("#documentary_section").classList.remove("hide");
+            } else if (this.dataset.genre == "Premiere") {
+                document.querySelector("#premiere_section").classList.remove("hide");
+                document.querySelector("#romantic_section").classList.add("hide");
+                document.querySelector("#animation_section").classList.add("hide");
+                document.querySelector("#comedy_section").classList.add("hide");
+                document.querySelector("#horror_section").classList.add("hide");
+                document.querySelector("#documentary_section").classList.add("hide");
+            } else if (this.dataset.genre == "Romantic") {
+                document.querySelector("#premiere_section").classList.add("hide");
+                document.querySelector("#romantic_section").classList.remove("hide");
+                document.querySelector("#animation_section").classList.add("hide");
+                document.querySelector("#comedy_section").classList.add("hide");
+                document.querySelector("#horror_section").classList.add("hide");
+                document.querySelector("#documentary_section").classList.add("hide");
+            } else if (this.dataset.genre == "Animation") {
+                document.querySelector("#premiere_section").classList.add("hide");
+                document.querySelector("#romantic_section").classList.add("hide");
+                document.querySelector("#animation_section").classList.remove("hide");
+                document.querySelector("#comedy_section").classList.add("hide");
+                document.querySelector("#horror_section").classList.add("hide");
+                document.querySelector("#documentary_section").classList.add("hide");
+            } else if (this.dataset.genre == "Comedy") {
+                document.querySelector("#premiere_section").classList.add("hide");
+                document.querySelector("#romantic_section").classList.add("hide");
+                document.querySelector("#animation_section").classList.add("hide");
+                document.querySelector("#comedy_section").classList.remove("hide");
+                document.querySelector("#horror_section").classList.add("hide");
+                document.querySelector("#documentary_section").classList.add("hide");
+            } else if (this.dataset.genre == "Horror") {
+                document.querySelector("#premiere_section").classList.add("hide");
+                document.querySelector("#romantic_section").classList.add("hide");
+                document.querySelector("#animation_section").classList.add("hide");
+                document.querySelector("#comedy_section").classList.add("hide");
+                document.querySelector("#horror_section").classList.remove("hide");
+                document.querySelector("#documentary_section").classList.add("hide");
+            } else if (this.dataset.genre == "Documentary") {
+                document.querySelector("#premiere_section").classList.add("hide");
+                document.querySelector("#romantic_section").classList.add("hide");
+                document.querySelector("#animation_section").classList.add("hide");
+                document.querySelector("#comedy_section").classList.add("hide");
+                document.querySelector("#horror_section").classList.add("hide");
+                document.querySelector("#documentary_section").classList.remove("hide");
             }
+
+
+
+
+
+            visMenu();
         }
