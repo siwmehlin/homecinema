@@ -1,15 +1,19 @@
+/*fjerner defaults*/
 * {
     margin: 0;
 }
 
+/*Sætter baggrundsfarve på body*/
 body {
     background-color: #1a1a1a;
 }
 
+/*Bestemmer skrift på buttons*/
 button {
     font-family: "Bebas Neue", sans-serif;
 }
 
+/*bestemmer størrelsen på splashbilledet*/
 .splash img {
     width: 100%;
     height: 30rem;
@@ -17,9 +21,10 @@ button {
 }
 
 
+
 @media only screen and (max-width: 600px) {
 
-    /* Style The Dropdown Button */
+    /* Styler Dropdown Button aka dropbtn */
     .dropbtn {
         background-color: #1a1a1a;
         color: white;
@@ -34,7 +39,7 @@ button {
 
 
 
-    /* The container <div> - needed to position the dropdown content */
+    /* sætter position på */
     .dropdown {
         position: relative;
         display: inline-block;
@@ -53,7 +58,7 @@ button {
 
     }
 
-    /* Links inside the dropdown */
+    /* filterknapper i dropdown */
     .dropdown_content a {
         color: black;
         padding: 12px 16px;
@@ -63,17 +68,15 @@ button {
         font-family: "Bebas Neue", sans-serif;
     }
 
-    /* Change color of dropdown links on hover */
-    .dropdown_content a:hover {
-        background-color: #f1f1f1
-    }
 
-    /* Show the dropdown menu on hover */
+    /* viser drop dovn menu */
     .dropdown:hover .dropdown_content {
         display: block;
+
     }
 
-    /* Change the background color of the dropdown button when the dropdown content is shown */
+
+    /* skifter background coler på button når content vises*/
     .dropdown:hover .dropbtn {
         background-color: white;
         color: black;
@@ -81,87 +84,33 @@ button {
 
     }
 
-    /* Change the background color of the dropdown button when the dropdown content is shown */
-    .dropdown:hover .dropdown_btn {
-        background-color: #3e8e41;
-    }
 }
 
-
-/*
+/* sætter grid på kategori for at lave grid-gap istedet for margin-top/bottom */
 .kategori {
     display: grid;
     grid-gap: 2rem;
-    grid-template-columns: 6rem auto;
-    grid-template-areas:
-        "genretxt1 indhold1"
-        "genretxt2 indhold2"
-        "genretxt3 indhold3"
-        "genretxt4 indhold4"
-        "genretxt5 indhold5"
-        "genretxt6 indhold6";
+}
+
+/*sætter grid på genre sectionerne */
+.section_grid {
+    margin-left: 5%;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr 2fr;
 
 }
 
-.genretxt1 {
-    grid-area: genretxt1;
-}
-
-#premiere {
-    grid-area: indhold1;
-}
-
-.genretxt2 {
-    grid-area: genretxt2;
-}
-
-#romantic {
-    grid-area: indhold2;
-}
-
-.genretxt3 {
-    grid-area: genretxt3;
-}
-
-#animation {
-    grid-area: indhold3;
-}
-
-.genretxt4 {
-    grid-area: genretxt4;
-}
-
-#comedy {
-    grid-area: indhold4;
-}
-
-.genretxt5 {
-    grid-area: genretxt5;
-}
-
-#horror {
-    grid-area: indhold5;
-}
-
-.genretxt6 {
-    grid-area: genretxt6;
-}
-
-#documentary {
-    grid-area: indhold6;
-}
-
-
+/*Sætter grid på classen scroll som rammer articles i kategori sectionen.*/
+/*tilføjer overflox-x: scroll så man kan scrolle igennem filmene*/
 .scroll {
     display: grid;
     grid-gap: 1rem;
     grid-template-columns: 8rem 8rem 8rem 8rem 8rem 8rem 8rem 8rem 8rem 8rem 8rem;
     overflow-x: scroll;
-
 }
-*/
 
-/* GENRE KATEGORIER MED SCROLL */
+/*bestemmer str på film billeder i template tagget*/
 #film_boks img {
     width: 100%;
     height: 12rem;
