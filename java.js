@@ -165,6 +165,7 @@
             document.querySelector("#emne").textContent = this.textContent;
 
 
+            // tilføjer og fjerner hide på sectionerne når der er trykket på en bestemt filter knap.
             if (filter == "alle") {
                 document.querySelector("#premiere_section").classList.remove("hide");
                 document.querySelector("#romantic_section").classList.remove("hide");
@@ -215,10 +216,6 @@
                 document.querySelector("#horror_section").classList.add("hide");
                 document.querySelector("#documentary_section").classList.remove("hide");
             }
-
-
-
-
 
             visMenu();
         }
