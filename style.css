@@ -3,26 +3,57 @@
     margin: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /*Sætter baggrundsfarve på body*/
 body {
     background-color: #1a1a1a;
 }
+
+header {
+    background-image: url(denise-jans-OaVJQZ-nFD0-unsplash.jpg);
+    width: 100vw;
+    height: 30rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+}
+
 
 /*Bestemmer skrift på buttons*/
 button {
     font-family: "Bebas Neue", sans-serif;
 }
 
-/*bestemmer størrelsen på splashbilledet*/
+/*
+bestemmer størrelsen på splashbilledet
 .splash img {
     width: 100%;
     height: 30rem;
     object-fit: cover;
 }
+*/
 
 
 
 @media only screen and (max-width: 600px) {
+
+    #section_dropdown {
+        display: flex;
+        justify-content: center;
+    }
+
+
+    /*centrer navigationsknappen*/
+    #nav_dropdown {
+        top: 70%;
+        position: absolute;
+
+    }
 
     /* Styler Dropdown Button aka dropbtn */
     .dropbtn {
@@ -72,7 +103,6 @@ button {
     /* viser drop dovn menu */
     .dropdown:hover .dropdown_content {
         display: block;
-
     }
 
 
@@ -83,7 +113,13 @@ button {
         border-radius: 30px 30px 0px 0px;
 
     }
+}
 
+/*fjerner h1 emne i mobile view*/
+@media only screen and (max-width: 600px) {
+    #emne {
+        display: none;
+    }
 }
 
 /* sætter grid på kategori for at lave grid-gap istedet for margin-top/bottom */
@@ -94,16 +130,21 @@ button {
 
 /*sætter grid på genre sectionerne */
 .section_grid {
-    margin-left: 5%;
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 3rem 2fr;
 
+}
+
+.genrebut {
+    margin: 0 auto;
+    width: 14rem;
 }
 
 /*Sætter grid på classen scroll som rammer articles i kategori sectionen.*/
 /*tilføjer overflox-x: scroll så man kan scrolle igennem filmene*/
 .scroll {
+    margin-left: 5%;
     display: grid;
     grid-gap: 1rem;
     grid-template-columns: 8rem 8rem 8rem 8rem 8rem 8rem 8rem 8rem 8rem 8rem 8rem;
@@ -131,12 +172,11 @@ button {
     border-radius: 25px;
     border: none;
     text-decoration: none;
+    color: white;
 }
 
 
-
 /* styling til popop*/
-
 
 #popop {
     position: fixed;
