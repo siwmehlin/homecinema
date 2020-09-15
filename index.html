@@ -68,13 +68,9 @@
 
             <ul id="menu" class="hidden">
 
+                <li> <a>LOG IND</a></li>
+                <li> <a>MY ACCOUNT</a></li>
 
-                <li> <a>PREMIERE</a></li>
-                <li> <a>ROMANTIC</a></li>
-                <li> <a>COMEDY</a></li>
-                <li> <a>ANIMATION</a></li>
-                <li> <a>HORROR</a></li>
-                <li> <a>DOCUMENTARY</a></li>
             </ul>
         </nav>
 
@@ -86,50 +82,62 @@
         </section>
 
 
-        <div class="content">
-            <section id="filtermenu">
 
-                <button class="filter valgt" data-genre="alle">Alle Genre</button>
-                <button class="filter" data-genre="Premiere">Premiere</button>
-                <button class="filter" data-genre="Horror">Horror</button>
-                <button class="filter" data-genre="Romantic">Romantic</button>
-                <button class="filter" data-genre="Animation">Animation</button>
-                <button class="filter" data-genre="Documentary">Documentary</button>
-                <button class="filter" data-genre="Comedy">Comedy</button>
-                <h1 id="emne">Alle</h1>
-            </section>
-
-            <section class="kategori">
-
-                <h1>All Movies</h1>
-                <section id="all_movies"></section>
-
-
-                <button class="genretxt1 genrebut">Premiere Movies</button>
-                <section class="scroll" id="premiere"></section>
-
-                <button class="genretxt2 genrebut">Romantic Movies</button>
-                <section class="scroll" id="romantic"></section>
-
-
-                <button class="genretxt3 genrebut">Animation Movies</button>
-                <section class="scroll" id="animation"></section>
-
-
-                <button class="genretxt4 genrebut">Comedy Movied</button>
-                <section class="scroll" id="comedy"></section>
-
-
-                <button class="genretxt5 genrebut">Horror Movies</button>
-                <section class="scroll" id="horror"></section>
-
-
-                <button class="genretxt6 genrebut">Documentary</button>
-                <section class="scroll" id="documentary"></section>
-
-
-            </section>
+        <div class="content dropdown">
+            <button class="dropbtn">Filter</button>
+            <div class="dropdown_content">
+                <a class="filter valgt" data-genre="alle">All movies</a>
+                <a class="filter" data-genre="Premiere">Premiere</a>
+                <a class="filter" data-genre="Horror">Horror</a>
+                <a class="filter" data-genre="Romantic">Romantic</a>
+                <a class="filter" data-genre="Animation">Animation</a>
+                <a class="filter" data-genre="Documentary">Documentary</a>
+                <a class="filter" data-genre="Comedy">Comedy</a>
+            </div>
         </div>
+        <h1 id="emne">Alle</h1>
+
+
+
+
+        <section class="kategori">
+
+            <h1>All Movies</h1>
+            <section id="all_movies"></section>
+
+            <section class="active">
+                <button class="genretxt1 genrebut">Premiere Movies</button>
+                <article class="scroll" id="premiere"></article>
+            </section>
+
+            <section class="active">
+                <button class="genretxt2 genrebut">Romantic Movies</button>
+                <article class="scroll" id="romantic"></article>
+            </section>
+
+            <section class="active">
+                <button class="genretxt3 genrebut">Animation Movies</button>
+                <article class="scroll" id="animation"></article>
+            </section>
+
+            <section class="active">
+                <button class="genretxt4 genrebut">Comedy Movied</button>
+                <article class="scroll" id="comedy"></article>
+            </section>
+
+            <section class="active">
+                <button class="genretxt5 genrebut">Horror Movies</button>
+                <article class="scroll" id="horror"></article>
+            </section>
+
+            <section class="active">
+                <button class="genretxt6 genrebut">Documentary</button>
+                <article class="scroll" id="documentary"></article>
+            </section>
+
+
+        </section>
+
 
     </main>
     <footer>
