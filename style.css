@@ -3,6 +3,7 @@
     margin: 0;
 }
 
+/*Sætter scroll behavior på html*/
 html {
     scroll-behavior: smooth;
 }
@@ -12,47 +13,95 @@ body {
     background-color: #1a1a1a;
 }
 
+/*Sætter baggrundsbillede/splash på header og bestemmer str*/
 header {
     background-image: url(denise-jans-OaVJQZ-nFD0-unsplash.jpg);
     width: 100vw;
-    height: 30rem;
+    height: 38rem;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-
 }
 
-
-/*Bestemmer skrift på buttons*/
-button {
+h1 {
     font-family: "Bebas Neue", sans-serif;
 }
 
-/*
-bestemmer størrelsen på splashbilledet
-.splash img {
-    width: 100%;
-    height: 30rem;
-    object-fit: cover;
+.menu {
+    background-color: rgba(26, 26, 26, 0.7);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
-*/
 
+.menu img {
+    width: 3rem;
+    margin: 0.5rem;
+    margin-left: 2rem;
 
+}
 
-@media only screen and (max-width: 600px) {
+.menu a {
+    align-self: center;
+    color: white;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 20px;
+    margin-right: 2rem;
+}
 
-    #section_dropdown {
-        display: flex;
-        justify-content: center;
+.splashlogo {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+}
+
+@media only screen and (max-width: 800px) {
+
+    #weblogo {
+        display: none;
     }
 
+    #mobillogo {
+        width: 50%;
+        max-width: 300px;
+    }
+}
 
-    /*centrer navigationsknappen*/
+.gradient {
+    height: 100%;
+    background: linear-gradient(180deg, rgba(26, 26, 26, 0) 34%, rgba(26, 26, 26, 1) 100%);
+}
+
+
+
+/*Bestemmer skrift på buttons*/
+button,
+h2 {
+    font-family: "Bebas Neue", sans-serif;
+}
+
+
+/*Hebo på brødtekst (husk)*/
+p {
+    font-family: "Montserrat";
+}
+
+
+#section_dropdown {
+    display: flex;
+    justify-content: center;
+}
+
+
+/*centrer navigationsknappen*/
+
+
+@media only screen and (max-width: 800px) {
     #nav_dropdown {
-        top: 70%;
+        top: 85%;
         position: absolute;
-
     }
 
     /* Styler Dropdown Button aka dropbtn */
@@ -74,7 +123,6 @@ bestemmer størrelsen på splashbilledet
     .dropdown {
         position: relative;
         display: inline-block;
-
     }
 
     /* Dropdown Content (Hidden by Default) */
@@ -82,11 +130,11 @@ bestemmer størrelsen på splashbilledet
         display: none;
         position: absolute;
         background-color: #f9f9f9;
+
         border-radius: 0px 0px 30px 30px;
         min-width: 14rem;
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         z-index: 1;
-
     }
 
     /* filterknapper i dropdown */
@@ -111,12 +159,11 @@ bestemmer størrelsen på splashbilledet
         background-color: white;
         color: black;
         border-radius: 30px 30px 0px 0px;
-
     }
 }
 
 /*fjerner h1 emne i mobile view*/
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
     #emne {
         display: none;
     }
@@ -125,26 +172,65 @@ bestemmer størrelsen på splashbilledet
 /* sætter grid på kategori for at lave grid-gap istedet for margin-top/bottom */
 .kategori {
     display: grid;
-    grid-gap: 2rem;
+    grid-gap: 3rem;
+    margin-left: 5%;
 }
 
 /*sætter grid på genre sectionerne */
 .section_grid {
     display: grid;
     grid-gap: 1rem;
-    grid-template-rows: 3rem 2fr;
+    /*    grid-template-rows: auto 3rem 2fr;*/
+    grid-template-areas: "h2 btn""scrollbtn scrollbtn";
 
 }
 
+.vis_alle_genre {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    margin-right: 1rem;
+}
+
+@media only screen and (min-width: 800px) {
+    .vis_alle_genre {
+        display: grid;
+        grid-gap: 2rem;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        margin-right: 3rem;
+    }
+}
+
+
+/*Styler h2 i kategori sectionen*/
+.kategori h2 {
+    color: white;
+    grid-area: h2;
+    width: 12rem;
+    padding-top: .6rem;
+    padding-bottom: .6rem;
+
+}
+
+/*Styler genre buttons*/
 .genrebut {
-    margin: 0 auto;
-    width: 14rem;
+    margin-right: 1rem;
+    padding-top: 15px;
+    grid-area: btn;
+    background-color: #990606;
+    border-radius: 25px;
+    border: none;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    font-family: "Bebas Neue", sans-serif;
 }
 
 /*Sætter grid på classen scroll som rammer articles i kategori sectionen.*/
 /*tilføjer overflox-x: scroll så man kan scrolle igennem filmene*/
 .scroll {
-    margin-left: 5%;
+    /*    margin-left: 5%;*/
+    grid-area: scrollbtn;
     display: grid;
     grid-gap: 1rem;
     grid-template-columns: 8rem 8rem 8rem 8rem 8rem 8rem 8rem 8rem 8rem 8rem 8rem;
@@ -160,6 +246,7 @@ bestemmer størrelsen på splashbilledet
 
 }
 
+/*Styler filter btns*/
 .filter {
     padding: 15px 40px;
     text-decoration: none;
@@ -167,17 +254,8 @@ bestemmer størrelsen på splashbilledet
     margin-right: 20px;
 }
 
-.genrebut {
-    background-color: #464646;
-    border-radius: 25px;
-    border: none;
-    text-decoration: none;
-    color: white;
-}
-
 
 /* styling til popop*/
-
 #popop {
     position: fixed;
     left: 0;
@@ -222,7 +300,6 @@ bestemmer størrelsen på splashbilledet
     width: 90vw;
     padding: 1em;
     z-index: 15;
-
 }
 
 #popop img {
@@ -268,11 +345,10 @@ bestemmer størrelsen på splashbilledet
 
 .box2 .navn {
     font-size: 35px;
-    margin-top: 1.7rem;
+    margin-top: 1rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid white;
 }
-
 
 /*sætter grid på så de små informationer ligger vandret*/
 /*mangler at blive cebtreret*/
@@ -307,13 +383,9 @@ bestemmer størrelsen på splashbilledet
 }
 
 .film_storinfo p {
-    font-size: 18px;
+    font-size: 14px;
     padding-top: 0.5rem;
 }
-
-
-
-/*siw du er kommet her til*/
 
 /*kode til java*/
 .hide {
@@ -325,357 +397,232 @@ bestemmer størrelsen på splashbilledet
     background-color: aqua;
 }
 
-/*
-.content {
-    margin-left: 10vw;
-}
-
-.splash img {
-    width: 100%;
-    height: 30rem;
-    object-fit: cover;
-}
-
-
-.kategori {
-    display: grid;
-    grid-gap: 50px;
-    grid-template-columns: 200px auto;
-    grid-template-areas:
-        "genretxt1 indhold1"
-        "genretxt2 indhold2"
-        "genretxt3 indhold3"
-        "genretxt4 indhold4"
-        "genretxt5 indhold5"
-        "genretxt6 indhold6";
-
-}
-
-.genretxt1 {
-    grid-area: genretxt1;
-}
-
-#premiere {
-    grid-area: indhold1;
-}
-
-.genretxt2 {
-    grid-area: genretxt2;
-}
-
-#romantic {
-    grid-area: indhold2;
-}
-
-.genretxt3 {
-    grid-area: genretxt3;
-}
-
-#animation {
-    grid-area: indhold3;
-}
-
-.genretxt4 {
-    grid-area: genretxt4;
-}
-
-#comedy {
-    grid-area: indhold4;
-}
-
-.genretxt5 {
-    grid-area: genretxt5;
-}
-
-#horror {
-    grid-area: indhold5;
-}
-
-.genretxt6 {
-    grid-area: genretxt6;
-}
-
-#documentary {
-    grid-area: indhold6;
-}
-
-
-.scroll {
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: 200px 200px 200px 200px 200px 200px 200px 200px 200px 200px 200px;
-    overflow-x: scroll;
-
-}
-
-
-
-#film_boks img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 25px;
-
-}
-
-.filter {
-    background-color: #1a1a1a;
-    border: 1px solid white;
-    padding: 15px 40px;
-    border-radius: 50px;
-    margin-bottom: 50px;
-    text-decoration: none;
-    color: white;
-    margin-right: 20px;
-
-}
-
-.genrebut {
-    background-color: #464646;
-    border-radius: 25px;
-    border: none;
-    text-decoration: none;
-}
-
-
-.genretxt {
-    width: 100px;
-    height: 100px;
-
-}
-
-/*kode menu toggle*/
-
-/*****Fonts*****/
-
-/*
-
-ul {
-    font-family: "Bebas Neue", sans-serif;
-    padding-top: 10px
-}
-
-li {
-    font-family: "Bebas Neue", sans-serif;
-}
-
-/*****Header*****/
-
-/*****Body*****/
-
-
-/*****Navbar*****/
-
-/*
-nav {
-    display: flex;
-    top: 0;
-    text-align: center;
-    justify-content: space-between;
-    padding-right: 10px;
-    padding-bottom: 10px;
-}
-
-/* Navbar links */
-/*
-a {
-    color: red;
-    text-align: center;
-    padding: 14px;
-    text-decoration: none;
-    font-family: "Bebas Neue", sans-serif;
-}
-
-nav a:hover {
-    color: grey;
-    cursor: pointer;
-}
-
-
-
-.hidden {
-    opacity: 1.0;
-    transform: translateX(-300%)
-}
-
-#menuknap {
-    display: inline-block;
-    position: absolute;
-    top: 2vw;
-    left: 90vw;
-    font-size: 20px;
-    color: red;
-    font-family: Bebas Neue, sans-serif;
-}
-
-#menuknap:hover {
-    cursor: pointer;
-}
-
-#menu {
-    list-style-type: none;
-    transition: transform 0.3s;
-    transform-origin: top left;
-}
-
-
-
-
-@media (max-width: 850px) {
-    p {
-        margin: auto;
-    }
-
-    h1 {
-        text-align: center;
-    }
-
-
-    nav a {
-        padding: 0px;
-    }
-
-
-    #logo {
-        width: 55vw;
-        justify-content: center;
-        margin-left: 20px;
-    }
-
-
-    nav {
-        text-align: left;
-    }
-
-}
-
-@media (min-width:600px) {
-    #menuknap {
+/*Sætter dropbtn og #emne til display: none når skærm str er større end 600px*/
+@media only screen and (min-width: 800px) {
+    .dropbtn {
         display: none;
     }
 
-    #menu.hidden {
-        transform: translateX(0);
-        opacity: 1;
-
-    }
-
-    #menu li {
-        display: inline-block;
+    #emne {
+        display: none;
     }
 }
 
-
-/* styling til popop*/
-
-/*
-#popop {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, .8);
-    display: none;
+/*sætter højde på header*/
+@media only screen and (min-width: 800px) {
+    header {
+        height: 800px;
+    }
 }
 
-.container {
-    width: 60vw;
-    height: 90%;
-    background-color: #1a1a1a;
-    border-radius: 25px;
-    display: grid;
-    grid-gap: 20px;
-    grid-template-areas: "box1 box1 box2 box2""box3 box3 box3 box3";
-    grid-auto-rows: 2fr 1fr;
+@media only screen and (min-width: 800px) {
+    #weblogo {}
 
+    #mobillogo {
+        display: none;
+    }
+
+    .splashlogo {
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        margin-top: 200px;
+    }
+
+    .splashlogo img {
+        width: 70vw;
+    }
 }
 
-.box1 {
-    margin: 30px;
-    grid-area: box1;
+@media only screen and (min-width: 800px) {
+    #nav_dropdown {
+        top: 90%;
+        padding-top: 15rem;
+        position: relative;
+    }
+
+    .dropdown_content {
+        max-width: 90vw;
+        display: grid;
+        grid-gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .filter {
+        border: 1px solid white;
+        border-radius: 25px;
+        margin-right: 0;
+        text-align: center;
+        min-width: 100px;
+        font-family: "Bebas Neue", sans-serif;
+    }
+
+    .filter:hover {
+        background-color: #9b0000;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+
+    /*ændre grid i desktop view*/
+    .section_grid {
+        grid-template-areas: "h2 h2""btn scrollbtn"
+    }
+
+    .kategori h2 {
+        width: 15rem;
+        padding-top: .6rem;
+        padding-bottom: .6rem;
+        font-size: 40px;
+    }
+
+    /*Styler genre buttons*/
+    .genrebut {
+        text-align: center;
+        padding-top: 60%;
+        background-color: #1a1a1a;
+        width: 12rem;
+        border: 1px solid white;
+        font-size: 25px;
+        font-family: "Bebas Neue", sans-serif;
+    }
+
+    .genrebut:hover {
+        background-color: #9b0000;
+    }
+
+    /*Sætter grid på classen scroll som rammer articles i kategori sectionen.*/
+    /*tilføjer overflox-x: scroll så man kan scrolle igennem filmene*/
+    .scroll {
+        grid-template-columns: 12rem 12rem 12rem 12rem 12rem 12rem 12rem 12rem 12rem 12rem 12rem;
+        /*    margin-left: 5%;*/
+    }
+
+    #film_boks img {
+        height: 18rem;
+    }
+
+    #film_boks:hover {
+        opacity: 0.3;
+    }
+}
+
+/*styler pop op når skærmvidden er over 600px;*/
+@media only screen and (min-width: 800px) {
+    #popop article {
+        width: 60%;
+        height: 45rem;
+    }
+
+    #luk {
+        width: 4rem;
+        border: 1px solid white;
+        border-radius: 40px 40px 40px 40px;
+        margin-left: 53vw;
+        margin-top: 1.2rem;
+    }
+
+    #luk:hover {
+        color: #9b0000;
+        border: 1px solid #9b0000;
+    }
+
+
+    .container {
+        margin-top: 5rem;
+        display: grid;
+
+        grid-template-areas: "box1 box2""box3 box3";
+    }
+
+    .box1 {
+        width: 400px;
+        grid-area: box1;
+    }
+
+    #popop img {
+        margin-top: 0;
+        width: 300px;
+        height: 400px;
+    }
+
+    .play,
+    .trailer {
+        width: 300px;
+    }
+
+    .play:hover {
+        background-color: darkred;
+    }
+
+    .trailer:hover {
+        background-color: #4f4d4f;
+    }
+
+
+    .box2 {
+        grid-area: box2;
+        margin: 0;
+        margin-right: 3rem;
+    }
+
+    .box3 {
+        grid-area: box3;
+    }
+}
+
+#imdb_container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
-.box2 {
-    margin: 30px;
-    grid-area: box2;
-
-
+#popop .imdbstar {
+    width: 1.3rem;
+    height: 1.3rem;
+    margin: 0;
+    margin-right: 0.5rem;
 }
 
-.box3 {
-    background-color: beige;
-    grid-area: box3;
-}
-
-
-
-#popop article {
-    width: 60vw;
-    height: 70%;
-    margin: 4rem auto;
-    background-color: #1a1a1a;
-    border-radius: 25px;
-
-}
-
-.play {
-    background-color: #9b0000;
-    border: 0;
-    padding: 15px 40px;
-    border-radius: 50px;
-    margin-bottom: 50px;
-    text-decoration: none;
-    color: white;
-    margin-right: 20px;
-    width: 15rem
-}
-
-.trailer {
-    background-color: #707070;
-    border: 0;
-    padding: 15px 40px;
-    border-radius: 50px;
-    margin-bottom: 50px;
-    text-decoration: none;
-    color: white;
-    margin-right: 20px;
-    width: 15rem;
-}
-
-#popop img {
-    width: 15rem;
-    height: 20rem;
-    border-radius: 25px;
-}
-
-
-#luk {
-    position: fixed;
-    margin-left: 57rem;
-    background-color: white;
-    color: black;
-    border-radius: 5px;
-    border: 3px solid grey;
-    width: 50px;
-    padding: 1em;
-    z-index: 10;
-
-}
-
-
-
-#popop h1 {
-    font-size: 30px;
-    margin-bottom: 20px;
-}
-
-#popop .column {
+footer {
+    margin-top: 4rem;
+    background-color: grey;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
 }
 
-*/
+address {
+    align-items: center;
+    color: white;
+    font-family: poppins light, sans-serif;
+    font-size: 14px;
+    width: 100%;
+    object-fit: cover;
+    flex-basis: auto;
+    width: 95vw;
+}
+
+footeraddres {
+    align-items: center;
+    color: grey;
+    font-family: poppins light, sans-serif;
+    font-size: 14px;
+    width: 100%;
+    object-fit: cover;
+    flex-basis: auto;
+    width: 95vw;
+}
+
+footer img {
+    width: 10%;
+    height: 10%;
+}
+
+@media only screen and (min-width: 800px) {
+    footer img {
+        width: 3%;
+        height: 3%;
+    }
+}

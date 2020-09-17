@@ -10,9 +10,18 @@
 
 <body>
     <!-- dette ses kun på siden vha java -->
-    <template>
+    <template id="templatepointerfilm">
 
         <article id="film_boks">
+
+            <img src="" alt="">
+        </article>
+
+    </template>
+
+    <template id="templatepointergenre">
+
+        <article id="genre_film_boks">
 
             <img src="" alt="">
         </article>
@@ -28,14 +37,19 @@
 
                 <div class="box1">
                     <img src="" alt="">
-                    <button class="play">Play</button>
-                    <button class="trailer">Trailer</button>
+                    <a href="https://www.youtube.com/watch?v=Lm4LYX3xdkU"><button class="play">Play</button></a>
+                    <a href="https://www.youtube.com/watch?v=Lm4LYX3xdkU"><button class="trailer">Trailer</button></a>
+
                 </div>
 
                 <div class="box2">
                     <h1 class="navn" id="navn"></h1>
                     <div class="film_lilleinfo">
-                        <p><span class="imdb"></span></p>
+                        <div id="imdb_container">
+                            <img class="imdbstar" src="Star1.svg" alt="imdb">
+                            <p><span class="imdb"></span></p>
+                        </div>
+
                         <p><span class="aar"></span></p>
                         <p><span class="spilletid"></span></p>
                         <p><span class="alder"></span></p>
@@ -60,42 +74,50 @@
         </article>
     </section>
 
+    <section id="login_popop" class="">
+
+    </section>
+
 
     <section id="forside">
 
     </section>
 
     <header>
+        <section class="gradient">
 
-        <nav>
-            <div id="menuknap">☰</div>
-
-            <ul id="menu" class="hidden">
-
-                <li> <a>LOG IND</a></li>
-                <li> <a>MY ACCOUNT</a></li>
-
-            </ul>
-        </nav>
-
-
-        <section id="section_dropdown">
-            <nav id="nav_dropdown">
-                <div class="dropdown">
-                    <button class="dropbtn">Filter</button>
-                    <div class="dropdown_content">
-                        <a class="filter valgt" data-genre="alle">All movies</a>
-                        <a class="filter" data-genre="Premiere">Premiere</a>
-                        <a class="filter" data-genre="Romantic">Romantic</a>
-                        <a class="filter" data-genre="Animation">Animation</a>
-                        <a class="filter" data-genre="Comedy">Comedy</a>
-                        <a class="filter" data-genre="Horror">Horror</a>
-                        <a class="filter" data-genre="Documentary">Documentary</a>
-
-                    </div>
-                </div>
+            <nav class="menu">
+                <img src="headerlogo.svg" alt="home cinema logo">
+                <a class="login">LOG IND</a>
 
             </nav>
+
+
+            <div class="splashlogo">
+                <img src="logo.svg" alt="Home cinema logo" id="weblogo">
+                <img src="mobil_logo.svg" alt="Home cinema mobil logo" id="mobillogo">
+            </div>
+
+
+
+            <section id="section_dropdown">
+                <nav id="nav_dropdown">
+                    <div class="dropdown">
+                        <button class="dropbtn">Filter</button>
+                        <div class="dropdown_content">
+                            <a class="filter valgt" data-genre="alle">All movies</a>
+                            <a class="filter" data-genre="Premiere">Premiere</a>
+                            <a class="filter" data-genre="Romantic">Romantic</a>
+                            <a class="filter" data-genre="Animation">Animation</a>
+                            <a class="filter" data-genre="Comedy">Comedy</a>
+                            <a class="filter" data-genre="Horror">Horror</a>
+                            <a class="filter" data-genre="Documentary">Documentary</a>
+
+                        </div>
+                    </div>
+
+                </nav>
+            </section>
         </section>
     </header>
 
@@ -112,32 +134,38 @@
             <section id="all_movies"></section>
 
             <section id="premiere_section" class="section_grid">
-                <button id="premierebtn" class="genretxt1 genrebut ">View all premiere movies</button>
+                <h2>Premiere movies</h2>
+                <a id="premierebtn" class="genretxt1 genrebut">View all</a>
                 <article class="scroll" id="premiere"></article>
             </section>
 
             <section id="romantic_section" class="section_grid">
-                <button id="romanticbtn" class="genretxt2 genrebut ">view all romantic movies</button>
+                <h2>Romantic movies</h2>
+                <a id="romanticbtn" class="genretxt2 genrebut "> View all</a>
                 <article class="scroll" id="romantic"></article>
             </section>
 
             <section id="animation_section" class="section_grid">
-                <button id="animationbtn" class="genretxt3 genrebut ">view all animation movies</button>
+                <h2>Animation movies</h2>
+                <a id="animationbtn" class="genretxt3 genrebut ">view all</a>
                 <article class="scroll" id="animation"></article>
             </section>
 
             <section id="comedy_section" class="section_grid">
-                <button id="comedybtn" class="genretxt4 genrebut ">view all comedy movied</button>
+                <h2>Comedy movies</h2>
+                <a id="comedybtn" class="genretxt4 genrebut ">view all </a>
                 <article class="scroll" id="comedy"></article>
             </section>
 
             <section id="horror_section" class="section_grid">
-                <button id="horrorbtn" class="genretxt5 genrebut ">view all horror movies</button>
+                <h2>Horror movies</h2>
+                <a id="horrorbtn" class="genretxt5 genrebut ">view all</a>
                 <article class="scroll" id="horror"></article>
             </section>
 
             <section id="documentary_section" class="section_grid">
-                <button id="documentarybtn" class="genretxt6 genrebut ">View all Documentaries</button>
+                <h2>Documentaries</h2>
+                <a id="documentarybtn" class="genretxt6 genrebut ">View all</a>
                 <article class="scroll" id="documentary"></article>
             </section>
 
@@ -146,8 +174,22 @@
 
 
     </main>
-    <footer>
 
+
+    <footer>
+        <div class="kontakt">
+            <address>
+                <p><strong> CONTACT:</strong>
+                    +4545454545</p>
+
+                <img src="instagram.png" alt="instagram">
+                <img src="mail.png" alt="mail">
+                <img src="facebook.png" alt="facebook">
+
+            </address>
+
+        </div>
     </footer>
+
     <script src="java.js"></script>
 </body></html>
