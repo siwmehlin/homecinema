@@ -4,28 +4,15 @@ document.addEventListener("DOMContentLoaded", hentdata)
 
 // 2PACX-1vSGuox_61lOs9uKSEo1WLMP2fxjH6Q_4CLdmDUH-Rb-TOjT2jbw49cfom7HFRI8KmV5lXWKU79Me2TN
 
+
+//Fetcher googlescheet data vha jason. Og bestemmer variablen movies
+//Sætter variablen movies til at indeholde den fetchede jason
 async function hentdata() {
     const JASONData = await fetch("https://spreadsheets.google.com/feeds/list/1Z9EjUVYxqOJ6Ic7Ibk4ox5qTcQjp845ygT3AaYKT_8c/od6/public/values?alt=json");
     movies = await JASONData.json();
     addEventListenersToButtons();
     visMenu();
 }
-
-function toggleMenu() {
-    console.log("toggleMenu");
-
-    document.querySelector("#menu").classList.toggle("hidden");
-
-    let erSkjult = document.querySelector("#menu").classList.contains("hidden")
-
-    if (erSkjult == true) {
-        document.querySelector("#menuknap").textContent = "☰";
-
-    } else {
-        document.querySelector("#menuknap").textContent = "X";
-    }
-}
-
 
 
 function visMenu() {
@@ -86,26 +73,27 @@ function visMenu() {
     document.querySelector("#documentary").classList.remove("vis_alle_genre");
 
 
+    //løber loop igennem array liste i jason og filterere udfra alle eller genre
     movies.feed.entry.forEach(movie => {
         if (filter == "alle" || filter == movie.gsx$genre.$t) {
             console.log(movie);
 
-
+            // Hvis genre er premiere tilføjes kun billeder fra denne genre
+            // Tilføjer template med img til article
+            // Ved click på article starter functionen visDetaljer med popop
+            // Dette gøres med alle genre
             if (movie.gsx$genre.$t == "Premiere") {
                 console.log(movie);
 
                 const klon = templatePointer.cloneNode(true).content;
 
-
                 klon.querySelector("img").src = movie.gsx$billede.$t;
-
 
                 klon.querySelector("article").addEventListener("click", () => visDetaljer(movie))
 
                 premierePointer.appendChild(klon);
 
             }
-
 
             if (movie.gsx$genre.$t == "Romantic") {
                 console.log(movie);
@@ -119,6 +107,7 @@ function visMenu() {
                 romanticPointer.appendChild(klon);
 
             }
+
             if (movie.gsx$genre.$t == "Animation") {
                 console.log(movie);
 
@@ -169,19 +158,19 @@ function visMenu() {
 
             }
         }
-
     })
-
-
 }
 
 
 document.querySelector("#luk").addEventListener("click", () => popop.style.display = "none");
 
-
+//ved click på #premierebtn mf. starter funktionen visPremiere mf.
 function visPremiere() {
     console.log(visPremiere);
 
+    //Fjernr sectioner som ikke skal vises.
+    //I premiere remover vi hide, og adder hide til de andre sectioner.
+    //De ander funtioner som vises ved click fungere på samme måde.
     document.querySelector("#premiere_section").classList.remove("hide");
     document.querySelector("#romantic_section").classList.add("hide");
     document.querySelector("#animation_section").classList.add("hide");
@@ -189,13 +178,13 @@ function visPremiere() {
     document.querySelector("#horror_section").classList.add("hide");
     document.querySelector("#documentary_section").classList.add("hide");
 
+
+    //fjerner og tilføjer classes så grid ændres fra at man scroller til at alle film i genren vises.
+    //i visMenu resetter vi alle classes.
     document.querySelector("#premierebtn").classList.add("hide");
     document.querySelector("#premiere_section").classList.remove("section_grid");
     document.querySelector("#premiere").classList.remove("scroll");
     document.querySelector("#premiere").classList.add("vis_alle_genre");
-
-
-
 }
 
 function visRomantic() {
@@ -233,12 +222,10 @@ function visAnimation() {
     document.querySelector("#animation").classList.remove("scroll");
     document.querySelector("#animation").classList.add("vis_alle_genre");
 
-
 }
 
 function visComedy() {
     console.log(visComedy);
-
 
     document.querySelector("#animation_section").classList.add("hide");
     document.querySelector("#premiere_section").classList.add("hide");
@@ -251,14 +238,11 @@ function visComedy() {
     document.querySelector("#comedy_section").classList.remove("section_grid");
     document.querySelector("#comedy").classList.remove("scroll");
     document.querySelector("#comedy").classList.add("vis_alle_genre");
-
-
 }
 
 
 function visHorror() {
     console.log(visHorror);
-
 
     document.querySelector("#horror_section").classList.remove("hide");
     document.querySelector("#premiere_section").classList.add("hide");
@@ -308,19 +292,20 @@ function visDetaljer(movie) {
 }
 
 
-
 function addEventListenersToButtons() {
     document.querySelectorAll(".filter").forEach((btn) => {
         btn.addEventListener("click", filterBTNs);
     });
-
 }
 
 function filterBTNs() {
     filter = this.dataset.genre;
+
+    //Ændrer overskrift til den gældende section som trykkes på.
     document.querySelector("#emne").textContent = this.textContent;
 
-
+    // Remover hide til alle sectioner når man trykker på filteret "alle".
+    // Hvis der trykkes på andet end "alle", addes hide til alle sectioner.
     if (filter == "alle") {
         document.querySelector("#premiere_section").classList.remove("hide");
         document.querySelector("#romantic_section").classList.remove("hide");
@@ -336,6 +321,7 @@ function filterBTNs() {
         document.querySelector("#horror_section").classList.add("hide");
         document.querySelector("#documentary_section").classList.add("hide");
 
+        //den section som er trykket på, fjerner hide på gældende section.
         if (this.dataset.genre == "Premiere") {
             document.querySelector("#premiere_section").classList.remove("hide");
 
@@ -349,21 +335,7 @@ function filterBTNs() {
             document.querySelector("#horror_section").classList.remove("hide");
         } else if (this.dataset.genre == "Documentary")
             document.querySelector("#documentary_section").classList.remove("hide");
-
     }
 
-
     visMenu();
-}
-
-function logIn() {
-    console.log(logIn);
-
-    document.querySelector("#login").addEventListener("click", logInPopOP);
-}
-
-function logInPopOP() {
-    console.log(logInPopOP);
-
-    document.querySelector("#login_popop").classList.add("hide");
 }
